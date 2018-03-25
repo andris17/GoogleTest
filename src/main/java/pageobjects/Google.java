@@ -1,27 +1,46 @@
 package pageobjects;
 
-import driver.DriverManager;
-import driver.DriverMethods;
 import org.openqa.selenium.By;
+
+import static driver.DriverMethods.*;
 
 public class Google {
 
-    By logo = By.id("logo");
-    By luckyButton = By.name("btnI");
+    private final By body = By.id("body");
+    private final By logo = By.id("logo");
+    private final By luckyButton = By.name("btnI");
+    private final By searchButton = By.name("btnK");
+    private final By searchButtonTypeAhead = By.className("lsb");
+    private final By searchField = By.id("lst-ib");
 
     public Google() {
 
     }
 
-    public void goToGoogle(){
-        DriverManager.getDriver().navigate().to("http://google.com");
+    public void goToGoogle() {
+        navigate("http://google.com");
     }
 
     public void goToLucky() {
-        DriverMethods.clickElement(luckyButton);
+        clickElement(luckyButton);
+    }
+
+    public void search(String searchParam) {
+        setText(searchField, searchParam);
+        clickElement(searchButtonTypeAhead);
+    }
+
+    public void searchSuggestion(String searchParam) {
+        setText(searchField, searchParam);
+        clickAway();
+        clickElement(searchButton);
     }
 
     public boolean isLogoDisplayed() {
-        return DriverMethods.isDisplayed(logo);
+        return isDisplayed(logo);
+    }
+
+    private void clickAway() {
+        clickElement(body);
     }
 }

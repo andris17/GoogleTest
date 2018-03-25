@@ -8,14 +8,14 @@ import pageobjects.Google;
 
 public class MainSteps {
 
-    Google google;
+    private Google google;
 
     public MainSteps() {
         google = new Google();
     }
 
     @Given("^I open Google$")
-    public void goToGoogle(){
+    public void goToGoogle() {
         google.goToGoogle();
     }
 
@@ -24,8 +24,18 @@ public class MainSteps {
         google.goToLucky();
     }
 
+    @When("^I search for (.*)$")
+    public void search(String searchParam) {
+        google.search(searchParam);
+    }
+
+    @When("^I select the first suggestion when searching for (.*)$")
+    public void searchSuggestion(String searchParam) {
+        google.searchSuggestion(searchParam);
+    }
+
     @Then("^I see the Google logo$")
-    public void logoIsDisplayed(){
+    public void logoIsDisplayed() {
         Assert.assertTrue(google.isLogoDisplayed());
     }
 }
