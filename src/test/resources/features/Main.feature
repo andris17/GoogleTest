@@ -17,3 +17,5 @@ Feature: Test feature
     Given I open Google
     When I select the first suggestion when searching for ELTE IK
     Then I see the Google logo
+    When I switch menu to Images
+
