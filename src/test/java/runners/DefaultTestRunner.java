@@ -13,11 +13,11 @@ import utils.Log4jUtils;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@Test"},
+        tags = {"@Search"},
         strict = true,
         glue = {"steps"},
         monochrome = true,
-        plugin = {"pretty", "json:jsonoutput.json"},
+        plugin = {"pretty", "html:target/cucumber/html-report", "json:target/cucumber.json"},
         features = "src/test/resources/features")
 
 public class DefaultTestRunner {
