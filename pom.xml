@@ -4,7 +4,7 @@
 
     <groupId>Ghost</groupId>
     <artifactId>GoogleTest</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>GoogleTest</name>
@@ -44,7 +44,7 @@
                         <version>${failsafe.plugin.version}</version>
                         <configuration>
                             <includes>
-                                <include>**/DefaultTestRunner.java</include>
+                                <include>**/DefaultGoogleTest.java</include>
                             </includes>
                         </configuration>
                         <executions>
@@ -73,7 +73,7 @@
         <dependency>
             <groupId>Ghost</groupId>
             <artifactId>SeleniumBase</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
