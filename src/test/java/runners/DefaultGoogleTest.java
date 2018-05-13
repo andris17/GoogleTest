@@ -20,7 +20,7 @@ import utils.Log4jUtils;
         plugin = {"pretty", "html:target/cucumber/html-report", "json:target/cucumber.json"},
         features = "src/test/resources/features")
 
-public class DefaultTestRunner {
+public class DefaultGoogleTest {
 
     @BeforeClass
     public static void beforeClass() {
