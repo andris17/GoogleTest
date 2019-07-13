@@ -10,8 +10,8 @@ public class Google {
     private final By logo = By.id("logo");
     private final By luckyButton = By.name("btnI");
     private final By searchButton = By.name("btnK");
-    private final By searchButtonTypeAhead = By.className("lsb");
-    private final By searchField = By.id("lst-ib");
+    private final By searchButtonTypeAhead = By.className("suggestions-inner-container");
+    private final By searchField = By.name("q");
 
     public Google() {
 
@@ -26,12 +26,12 @@ public class Google {
     }
 
     public void search(String searchParam) {
-        setText(searchField, searchParam);
+        clearAndSetText(searchField, searchParam);
         clickElement(searchButtonTypeAhead);
     }
 
     public void searchSuggestion(String searchParam) {
-        setText(searchField, searchParam);
+        clearAndSetText(searchField, searchParam);
         clickAway();
         clickElement(searchButton);
     }
