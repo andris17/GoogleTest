@@ -11,9 +11,3 @@ Feature: Test feature
     Given I open Google
     When I search for ELTE IK
     Then I see the Google logo
-
-  @Test @Search
-  Scenario: Search suggested option
-    Given I open Google
-    When I select the first suggestion when searching for ELTE IK
-    Then I see the Google logo

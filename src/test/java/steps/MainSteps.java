@@ -29,11 +29,6 @@ public class MainSteps {
         google.search(searchParam);
     }
 
-    @When("^I select the first suggestion when searching for (.*)$")
-    public void searchSuggestion(String searchParam) {
-        google.searchSuggestion(searchParam);
-    }
-
     @Then("^I see the Google logo$")
     public void logoIsDisplayed() {
         Assert.assertTrue(google.isLogoDisplayed());
