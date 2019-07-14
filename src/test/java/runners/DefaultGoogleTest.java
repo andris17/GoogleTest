@@ -1,8 +1,10 @@
 package runners;
 
+import driver.BrowserParameters;
 import driver.DefaultEventListener;
 import driver.DriverManager;
 import enums.BrowserType;
+import enums.ScreenshotMode;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -27,9 +29,11 @@ public class DefaultGoogleTest {
         System.out.println("Starting test suite...");
         System.setProperty("log4j.configurationFile", "src\\main\\resources\\log4j2.properties.xml");
 
-        DriverManager.setCloseBrowsers(false);
-
-        DriverManager.initDriver(BrowserType.CHROME);
+        BrowserParameters parameters = new BrowserParameters()
+                .setBrowserType(BrowserType.CHROME)
+                .doNotCloseBrowsersAtStart()
+                .setScreenShotMode(ScreenshotMode.FAILED);
+        DriverManager.initDriver(parameters);
 
         if (System.getProperty("logLevel") != null) {
             Log4jUtils.setRootLevel(System.getProperty("logLevel"));
