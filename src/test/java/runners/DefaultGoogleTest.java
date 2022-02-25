@@ -1,25 +1,20 @@
 package runners;
 
-import driver.DefaultEventListener;
 import driver.DriverManager;
 import enums.BrowserType;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
 import utils.Log4jUtils;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@Search"},
-        strict = true,
+        tags = "@Lucky",
+        features = {"src/test/resources/features/"},
         glue = {"steps"},
-        monochrome = true,
-        plugin = {"pretty", "html:target/cucumber/html-report", "json:target/cucumber.json"},
-        features = "src/test/resources/features")
-
+        plugin = {"pretty", "html:target/cucumber/html-report/cucumber-report.html", "json:target/cucumber.json"})
+@RunWith(Cucumber.class)
 public class DefaultGoogleTest {
 
     @BeforeClass
@@ -39,8 +34,7 @@ public class DefaultGoogleTest {
             Log4jUtils.setLevel(System.getProperty("classLogName"), System.getProperty("classLogLevel"));
         }
 
-        DriverManager.registerEventHandler(DefaultEventListener.getInstance());
-        DriverManager.setImplicitWaitSeconds(2);
+        DriverManager.setImplicitWaitTimeout(2);
     }
 
     @AfterClass

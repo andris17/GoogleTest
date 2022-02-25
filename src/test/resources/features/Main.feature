@@ -1,10 +1,11 @@
 Feature: Test feature
 
-  @Test
+  @Test @Lucky
   Scenario: First scenario
     Given I open Google
     When I go to the lucky page
     Then I see the Google logo
+    When I select the first suggestion when searching for ELTE IK
 
   @Test @Search
   Scenario: Search
