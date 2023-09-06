@@ -71,9 +71,13 @@
             <version>2.9.0</version>
         </dependency>
         <dependency>
+            <!-- Library is found at https://github.com/andris17/seleniumBase-->
+            <!-- Package the lib with all its dependencies-->
             <groupId>Ghost</groupId>
             <artifactId>SeleniumBase</artifactId>
             <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/SeleniumBase-1.0-jar-with-dependencies.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
